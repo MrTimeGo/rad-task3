@@ -1,1 +1,14 @@
-<p>book-list-item works!</p>
+<div *ngIf="book" class="border">
+    <img src="{{book.cover}}" alt="Image loading"/>
+    <div class="book-info">
+        <h3>{{book.title}}</h3>
+        <div class="book-details">
+            <p>Rating: {{book.rating}}</p>
+            <p>Reviews: {{book.reviewNumber}}</p>
+        </div>
+    </div>
+    <div class="item-buttons">
+        <button >View</button>
+        <button >Edit</button>
+    </div>
+</div>

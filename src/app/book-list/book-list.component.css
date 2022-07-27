@@ -1,0 +1,15 @@
+.container {
+    margin: 5px;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.books {
+    margin-top: 5px;
+    border: 2px solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

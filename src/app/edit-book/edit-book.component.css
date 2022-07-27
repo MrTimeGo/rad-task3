@@ -1,0 +1,41 @@
+.container {
+    padding: 10px;
+    border: 2px solid;
+    display: grid;
+    grid-template-areas: 
+    "top top"
+    "column1 column2"
+    "buttons buttons";
+}
+
+.top {
+    grid-area: top;
+}
+
+.column1 {
+    grid-area: column1;
+}
+
+.column2 {
+    grid-area: column2;
+}
+
+.buttons {
+    grid-area: buttons;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 5px;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 5px;
+}

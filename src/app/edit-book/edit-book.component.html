@@ -1,1 +1,32 @@
-<p>edit-book works!</p>
+<form [formGroup]="newBookForm" (ngSubmit)="onSubmit()" class="container">
+    <h3 class="top">Add Book</h3>
+    <div class="column1" id="new-book-form">
+        <div class="row">
+            <label>Title</label>
+            <input id="title" type="text" formControlName="title">
+        </div>
+        <div class="row">
+            <label for="cover">Cover</label>
+            <input id="cover" type="file" accept="image/*"
+            (change)="imageUpload($event)" formControlName="cover">
+        </div>
+        <div class="row">
+            <label for="genre">Genre</label>
+            <input id="genre" type="text" formControlName="genre">
+        </div>
+        <div class="row">
+            <label for="author">Author</label>
+            <input id="author" type="text" formControlName="author">
+        </div>
+    </div>
+    <div class="column2">
+        <div class="column">
+        <label for="content">Content</label>
+        <input id="content" type="text" formControlName="content">
+    </div>
+    </div>
+    <div class="buttons">
+        <button type="submit" [disabled]="!newBookForm.valid">Add</button>
+        <button type="reset">Clear</button>
+    </div>
+</form>
