@@ -1,14 +1,13 @@
-.border {
-    border: 1px solid;
-    border-radius: 2px;
-    padding: 2px;
+.wrapper {
+    border: 2px solid rgb(63, 81, 181);
+    border-radius: 5px;
+    padding: 5px;
     margin: 5px;
-
     display: flex;
     flex-direction: row;
 }
 
-.border img {
+.wrapper img {
     width: 30%;
     border: 1px solid;
     margin: 2px;
@@ -19,6 +18,7 @@
     display: flex;
     margin: 0 0 0 auto;
     align-items: flex-start;
+    gap: 5px;
 }
 
 .book-info {

@@ -1,9 +1,8 @@
-<div class="container">
-    <div class="buttons">
-        <button (click)="changeList('all')">All</button>
-        <button (click)="changeList('recomended')">Recomended</button>
-    </div>
-    <div class="books">
-        <app-book-list-item *ngFor="let book of books" [book]="book" ></app-book-list-item>
-    </div>
-</div>
+<mat-tab-group>
+    <mat-tab label="Add" class="books">
+        <div class="books">
+            <app-book-list-item *ngFor="let book of books" [book]="book" ></app-book-list-item>
+        </div>
+    </mat-tab>
+    <mat-tab label="Recomended"></mat-tab>
+</mat-tab-group>

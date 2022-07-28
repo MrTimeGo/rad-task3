@@ -1,4 +1,4 @@
-<div *ngIf="book" class="border">
+<div *ngIf="book" class="wrapper">
     <img src="{{book.cover}}" alt="Image loading"/>
     <div class="book-info">
         <h3>{{book.title}}</h3>
@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="item-buttons">
-        <button >View</button>
-        <button >Edit</button>
+        <button mat-raised-button (click)="openDialog()"><mat-icon>visibility</mat-icon></button>
+        <button mat-raised-button><mat-icon>edit</mat-icon></button>
     </div>
 </div>

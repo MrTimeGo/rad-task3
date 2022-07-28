@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { Book } from '../book';
-import { BOOKS } from '../books';
+import { BOOKS } from '../mock-data';
 
 @Component({
   selector: 'app-edit-book',
@@ -19,33 +19,37 @@ export class EditBookComponent implements OnInit {
     content : new FormControl('')
   });
 
-  profileImage:any;
-
   constructor(private changeDetector:ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
 
-  imageUpload(event:any)
-  {
-    var file = event.target.files.length;
-    for(let i=0;i<file;i++)
+
+  convertToBase64(file : File) {
+    let image;
+    var reader = new FileReader();
+    reader.onload = (event:any) => 
     {
-       var reader = new FileReader();
-       reader.onload = (event:any) => 
-       {
-           this.profileImage = event.target.result;
-           this.changeDetector.detectChanges();
-       }
-       reader.readAsDataURL(event.target.files[i]);
+        image = event.target.result;
+        this.changeDetector.detectChanges();
     }
+    reader.readAsDataURL(file);
+    return image;
   }
 
-  onSubmit() {
+  async onSubmit() {
+
+    const toBase64 = (file: Blob) => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+  });
+  
+    let base64 = await toBase64(this.newBookForm.value.cover) as string;
     let book = this.newBookForm.value as Book;
-    book.cover = this.profileImage;
-    BOOKS.push(book);
-    this.profileImage = null;
+    book.cover = base64;
+    BOOKS.push(book)
     this.newBookForm.reset();
   }
 

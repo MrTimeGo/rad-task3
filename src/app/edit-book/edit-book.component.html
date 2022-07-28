@@ -1,32 +1,32 @@
 <form [formGroup]="newBookForm" (ngSubmit)="onSubmit()" class="container">
-    <h3 class="top">Add Book</h3>
-    <div class="column1" id="new-book-form">
-        <div class="row">
-            <label>Title</label>
-            <input id="title" type="text" formControlName="title">
-        </div>
-        <div class="row">
-            <label for="cover">Cover</label>
-            <input id="cover" type="file" accept="image/*"
-            (change)="imageUpload($event)" formControlName="cover">
-        </div>
-        <div class="row">
-            <label for="genre">Genre</label>
-            <input id="genre" type="text" formControlName="genre">
-        </div>
-        <div class="row">
-            <label for="author">Author</label>
-            <input id="author" type="text" formControlName="author">
-        </div>
+    <h3>Add Book</h3>
+    <div class="column1">
+        <mat-form-field class="row" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" required>
+        </mat-form-field>
+        <mat-form-field class="row" appearance="outline">
+            <mat-label>Cover</mat-label>
+            <ngx-mat-file-input accept="image/*"
+            formControlName="cover"></ngx-mat-file-input>
+        </mat-form-field>
+        <mat-form-field class="row" appearance="outline">
+            <mat-label>Genre</mat-label>
+            <input matInput formControlName="genre" required>
+        </mat-form-field>
+        <mat-form-field class="row" appearance="outline">
+            <mat-label>Author</mat-label>
+            <input matInput formControlName="author" required>
+        </mat-form-field>
     </div>
     <div class="column2">
-        <div class="column">
-        <label for="content">Content</label>
-        <input id="content" type="text" formControlName="content">
-    </div>
+        <mat-form-field class="column" appearance="outline">
+            <mat-label>Content</mat-label>
+            <textarea matInput formControlName="content" rows="10" required></textarea>
+        </mat-form-field>
     </div>
     <div class="buttons">
-        <button type="submit" [disabled]="!newBookForm.valid">Add</button>
-        <button type="reset">Clear</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!newBookForm.valid">Add</button>
+        <button mat-raised-button type="reset">Clear</button>
     </div>
 </form>

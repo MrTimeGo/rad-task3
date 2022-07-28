@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BOOKS } from '../books';
+import { BOOKS } from '../mock-data';
 
 @Component({
   selector: 'app-book-list',

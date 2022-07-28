@@ -1,0 +1,25 @@
+.book-description {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    
+}
+
+.image-container {
+    display:flex;
+    flex-direction: column;
+    min-width: 100px;
+    max-width: 400px;
+}
+
+.image-container img {
+    width: 80%;
+    border: 1px solid;
+}
+
+.sub-image-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px
+}
