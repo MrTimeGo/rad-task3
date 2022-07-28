@@ -1,4 +1,5 @@
 export interface Review {
     id : number,
-    message : string
+    message : string,
+    reviewer : string
 }

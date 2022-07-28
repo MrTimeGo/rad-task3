@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import { BOOKS } from '../mock-data';
+import { Observable } from 'rxjs';
+import { Book } from '../book';
+import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-book-list',
@@ -9,14 +10,21 @@ import { BOOKS } from '../mock-data';
 })
 export class BookListComponent implements OnInit {
 
-  books = BOOKS;
+  allBooks : Observable<Book[]> | null = null;
+  recomendedBooks : Observable<Book[]> | null = null;
 
-  constructor() { }
+  constructor(private bookService : BookService) { }
 
   ngOnInit(): void {
+    this.getAllBooks();
+    this.getRecomendedBooks();
   }
 
-  changeList(listType : string) {
-    console.log(listType);
+  getAllBooks() {
+    this.allBooks = this.bookService.getAllBooks();
+  }
+
+  getRecomendedBooks() {
+    this.recomendedBooks = this.bookService.getRecomendedBooks();
   }
 }

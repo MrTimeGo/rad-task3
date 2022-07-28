@@ -1,27 +1,25 @@
 <h2 mat-dialog-title>Details</h2>
-<mat-dialog-content class="mat-typography book-description">
-    <div class="image-container">
-        <img src="{{book.cover}}" alt="Image loading">
-        <div class="sub-image-container">
-            <p>Rating: {{book.rating}}</p>
-            <p>Reviews: {{book.reviewNumber}}</p>
+<mat-dialog-content class="mat-typography">
+    <div class="book-description">
+        <div class="image-container">
+            <img src="{{book.cover}}" alt="Image loading">
+            <div class="sub-image-container">
+                <p>Rating: {{book.rating}}</p>
+                <p>Reviews: {{book.reviewNumber}}</p>
+            </div>
+        </div>
+        <div>
+            <h3>{{book.title}}</h3>
+            <h4>{{book.author}}, {{book.genre}}</h4>
+            <p>{{book.content}}</p>
         </div>
     </div>
-    <div>
-        <h3>{{book.title}}</h3>
-        <h4>{{book.author}}, {{book.genre}}</h4>
-        <p>{{book.content}}</p>
+    <div class="reviews">
+        <mat-card *ngFor="let review of reviews">
+            <mat-card-title>{{review.reviewer}}</mat-card-title>
+            <mat-card-content>{{review.message}}</mat-card-content>          
+        </mat-card>
     </div>
-
-    <mat-list>
-        <mat-list-item *ngFor="let review in reviews">
-            <div *ngIf="review">
-                <mat-divider></mat-divider>
-                <h4>Review</h4>
-                <p>Review Content</p>
-            </div>
-        </mat-list-item>
-  </mat-list>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Close</button>
