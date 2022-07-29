@@ -1,1 +1,32 @@
-<p>edit-book works!</p>
+<form [formGroup]="newBookForm" (ngSubmit)="onSubmit()" class="container">
+    <h3>Add Book</h3>
+    <div class="column1">
+        <mat-form-field class="row" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" required>
+        </mat-form-field>
+        <mat-form-field class="row" appearance="outline">
+            <mat-label>Cover</mat-label>
+            <ngx-mat-file-input accept="image/*"
+            formControlName="cover"></ngx-mat-file-input>
+        </mat-form-field>
+        <mat-form-field class="row" appearance="outline">
+            <mat-label>Genre</mat-label>
+            <input matInput formControlName="genre" required>
+        </mat-form-field>
+        <mat-form-field class="row" appearance="outline">
+            <mat-label>Author</mat-label>
+            <input matInput formControlName="author" required>
+        </mat-form-field>
+    </div>
+    <div class="column2">
+        <mat-form-field class="column" appearance="outline">
+            <mat-label>Content</mat-label>
+            <textarea matInput formControlName="content" rows="10" required></textarea>
+        </mat-form-field>
+    </div>
+    <div class="buttons">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!newBookForm.valid">Add</button>
+        <button mat-raised-button type="reset">Clear</button>
+    </div>
+</form>
