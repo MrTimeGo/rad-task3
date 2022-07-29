@@ -3,6 +3,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 import { Book } from '../book';
+import { REVIEWS } from '../mock-data';
+import { Review } from '../review';
 
 @Component({
   selector: 'app-view-book',
@@ -10,6 +12,8 @@ import { Book } from '../book';
   styleUrls: ['./view-book.component.css']
 })
 export class ViewBookComponent implements OnInit {
+
+  reviews : Review[] = REVIEWS;
 
   constructor(@Inject(MAT_DIALOG_DATA) public book: Book) { }
 

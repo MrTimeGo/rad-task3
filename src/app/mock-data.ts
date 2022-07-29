@@ -9,6 +9,6 @@ export const BOOKS : Book[] = [
 ]
 
 export const REVIEWS : Review[] = [
-    { id : 1, message : "hello" },
-    { id : 2, message : "Great"}
+    { id : 1, message : "hello", reviewer : "Reviewer 1"},
+    { id : 2, message : "Great", reviewer : "Reviewer 2"}
 ]

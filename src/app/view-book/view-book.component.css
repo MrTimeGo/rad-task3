@@ -23,3 +23,9 @@
     flex-wrap: wrap;
     gap: 10px
 }
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}

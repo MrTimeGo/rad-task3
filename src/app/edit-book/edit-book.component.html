@@ -1,5 +1,5 @@
 <form [formGroup]="newBookForm" (ngSubmit)="onSubmit()" class="container">
-    <h3>Add Book</h3>
+    <h3>{{action}} book</h3>
     <div class="column1">
         <mat-form-field class="row" appearance="outline">
             <mat-label>Title</mat-label>
@@ -26,7 +26,7 @@
         </mat-form-field>
     </div>
     <div class="buttons">
-        <button mat-raised-button color="primary" type="submit" [disabled]="!newBookForm.valid">Add</button>
-        <button mat-raised-button type="reset">Clear</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!newBookForm.valid">{{action}}</button>
+        <button mat-raised-button (click)="onCancel()">{{secondaryAction}}</button>
     </div>
 </form>
